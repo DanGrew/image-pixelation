@@ -13,6 +13,7 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import uk.dangrew.kode.javafx.platform.PlatformLifecycle;
 
 /**
  * Entry point to the system for launching.
@@ -27,10 +28,7 @@ public class ImagePixelation extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         stage.setTitle(TITLE);
-        stage.setOnCloseRequest(event -> {
-            PlatformImpl.exit();
-            System.exit(0);
-        });
+        stage.setOnCloseRequest(event -> PlatformLifecycle.shutdown());
 
         ImagePixelationConfiguration configuration = new ImagePixelationConfiguration();
 

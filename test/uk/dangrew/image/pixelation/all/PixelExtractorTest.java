@@ -32,9 +32,9 @@ public class PixelExtractorTest {
         systemUnderTest = new PixelExtractor(configuration);
 
         imageProperties = new ImageProperties();
-        when(image.getWidth()).thenAnswer(i -> imageProperties.getWidth());
-        when(image.getHeight()).thenAnswer(i -> imageProperties.getHeight());
-        when(image.getPixelReader()).thenReturn(pixelReader);
+        when(image.friendly_getWidth()).thenAnswer(i -> imageProperties.getWidth());
+        when(image.friendly_getHeight()).thenAnswer(i -> imageProperties.getHeight());
+        when(image.friendly_getPixelReader()).thenReturn(pixelReader);
         when(pixelReader.getColor(anyInt(), anyInt()))
                 .thenAnswer(i -> imageProperties.getColourAt(
                         (int) i.getArguments()[0],

@@ -23,13 +23,13 @@ public class PixelExtractor {
         int horizontalRange = configuration.getOutputPixelSize() + 2 * configuration.getOverlapPixelSize();
         int verticalRange = configuration.getOutputPixelSize() + 2 * configuration.getOverlapPixelSize();
 
-        int startX = calculateStartCoordinate(outputX, image.getWidth());
-        int startY = calculateStartCoordinate(outputY, image.getHeight());
+        int startX = calculateStartCoordinate(outputX, image.friendly_getWidth());
+        int startY = calculateStartCoordinate(outputY, image.friendly_getHeight());
 
-        int endX = calculateEndCoordinate(startX, horizontalRange, image.getWidth());
-        int endY = calculateEndCoordinate(startY, verticalRange, image.getHeight());
+        int endX = calculateEndCoordinate(startX, horizontalRange, image.friendly_getWidth());
+        int endY = calculateEndCoordinate(startY, verticalRange, image.friendly_getHeight());
 
-        PixelReader pixelReader = image.getPixelReader();
+        PixelReader pixelReader = image.friendly_getPixelReader();
 
         Collection<Color> colours = new ArrayList<>();
         for (int i = startX; i < endX; i++) {

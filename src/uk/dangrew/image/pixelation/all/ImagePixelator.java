@@ -34,8 +34,8 @@ public class ImagePixelator {
      * @return the constructed {@link Image}.
      */
     public Image pixelate(FriendlyImage input) {
-        int width = (int) (input.getWidth() / configuration.getOutputPixelSize());
-        int height = (int) (input.getHeight() / configuration.getOutputPixelSize());
+        int width = (int) (input.friendly_getWidth() / configuration.getOutputPixelSize());
+        int height = (int) (input.friendly_getHeight() / configuration.getOutputPixelSize());
 
         WritableImage outputImage = new WritableImage(width, height);
         PixelWriter pixelWriter = outputImage.getPixelWriter();

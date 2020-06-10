@@ -36,8 +36,8 @@ public class ImagePixelatorTest {
 
     @Test
     public void shouldProduceOutputWithCorrectDimensions(){
-        when(image.getWidth()).thenReturn(40.5);
-        when(image.getHeight()).thenReturn(60.5);
+        when(image.friendly_getWidth()).thenReturn(40.5);
+        when(image.friendly_getHeight()).thenReturn(60.5);
 
         Image result = systemUnderTest.pixelate(image);
         assertThat(result.getWidth(), is( 2.0));
@@ -45,8 +45,8 @@ public class ImagePixelatorTest {
     }
 
     @Test public void shouldIdentifyCorrctColouring(){
-        when(image.getWidth()).thenReturn(20.0);
-        when(image.getHeight()).thenReturn(20.0);
+        when(image.friendly_getWidth()).thenReturn(20.0);
+        when(image.friendly_getHeight()).thenReturn(20.0);
 
         Collection<Color> extractedColours = Arrays.asList(Color.BLUE, Color.RED);
         when(pixelExtractor.extractColours(image, 0, 0)).thenReturn(extractedColours);
